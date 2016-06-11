@@ -12,7 +12,10 @@
 ")"     { printf("CLOSEPAR\n"); return CP; }
 "^"     { printf("EXPONENT\n"); return POW;}
 "%"     { printf("MOD\n"); return MOD; }
-[0-9]*\.?[0-9]+|[0-9]+\. { printf("FLOAT\n"); yylval.flt =  atof(yytext); return FLOAT; }
+[0-9]+	{ printf("INTEGER\n"); yylval = strtol (yytext, NULL, 10); return NUMBER; }
+[0-9]*\.?[0-9]+|[0-9]+\. { printf("FLOAT\n"); yylval = strtol (yytext, NULL, 10); return NUMBER; }
+0x[a-f0-9]+ {printf("HEX-NUMBER\n"); yylval = strtol (yytext + 2, NULL, 16); return NUMBER;}
+0o[0-7]+ { printf("OCTAL-NUMBER\n"); yylval = strtol (yytext + 1, NULL, 8); return NUMBER;} /*octal number with a 0o prefix*/
 
 
 "$"     { printf("EOF\n");}
