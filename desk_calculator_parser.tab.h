@@ -53,7 +53,8 @@ extern int yydebug;
     ABS = 263,
     OP = 264,
     CP = 265,
-    EOL = 266
+    EOL = 266,
+    POW = 267
   };
 #endif
 

@@ -10,7 +10,9 @@
 "/"	    { printf("DIV\n"); return DIV; }
 "("     { printf("OPENPAR\n"); return OP; }
 ")"     { printf("CLOSEPAR\n"); return CP; }
+"^"     { printf("EXPONENT\n"); return POW;}
 [0-9]+	{ printf("NUMBER\n");yylval = atoi(yytext); return NUMBER; }
+0x[a-f0-9]+ {return NUMBER;}
 "$"     { printf("EOF\n");}
 \n      { printf("NEWLINE\n"); return EOL; }
 "//".*  /* ignores comments */  
