@@ -62,11 +62,11 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 2 "desk_calculator_parser.y" /* yacc.c:339  */
+#line 2 "cal_parser.y" /* yacc.c:339  */
 
 #include <stdio.h> 
 
-#line 70 "desk_calculator_parser.tab.c" /* yacc.c:339  */
+#line 70 "cal_parser.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -85,9 +85,9 @@
 #endif
 
 /* In a future release of Bison, this section will be replaced
-   by #include "desk_calculator_parser.tab.h".  */
-#ifndef YY_YY_DESK_CALCULATOR_PARSER_TAB_H_INCLUDED
-# define YY_YY_DESK_CALCULATOR_PARSER_TAB_H_INCLUDED
+   by #include "cal_parser.tab.h".  */
+#ifndef YY_YY_CAL_PARSER_TAB_H_INCLUDED
+# define YY_YY_CAL_PARSER_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -127,11 +127,11 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_DESK_CALCULATOR_PARSER_TAB_H_INCLUDED  */
+#endif /* !YY_YY_CAL_PARSER_TAB_H_INCLUDED  */
 
 /* Copy the second part of user declarations.  */
 
-#line 135 "desk_calculator_parser.tab.c" /* yacc.c:358  */
+#line 135 "cal_parser.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -1212,79 +1212,79 @@ yyreduce:
   switch (yyn)
     {
         case 3:
-#line 15 "desk_calculator_parser.y" /* yacc.c:1646  */
+#line 15 "cal_parser.y" /* yacc.c:1646  */
     { printf("Result => %d\n", (yyvsp[-1])); }
-#line 1218 "desk_calculator_parser.tab.c" /* yacc.c:1646  */
+#line 1218 "cal_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 4:
-#line 16 "desk_calculator_parser.y" /* yacc.c:1646  */
+#line 16 "cal_parser.y" /* yacc.c:1646  */
     { printf("> "); }
-#line 1224 "desk_calculator_parser.tab.c" /* yacc.c:1646  */
+#line 1224 "cal_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 19 "desk_calculator_parser.y" /* yacc.c:1646  */
+#line 19 "cal_parser.y" /* yacc.c:1646  */
     { printf("E =>T %d %d\n",(yyval), (yyvsp[0]));}
-#line 1230 "desk_calculator_parser.tab.c" /* yacc.c:1646  */
+#line 1230 "cal_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 20 "desk_calculator_parser.y" /* yacc.c:1646  */
+#line 20 "cal_parser.y" /* yacc.c:1646  */
     { (yyval) = (yyvsp[-2]) + (yyvsp[0]); printf("E => E+T %d %d %d\n",(yyval),(yyvsp[-2]),(yyvsp[0]));}
-#line 1236 "desk_calculator_parser.tab.c" /* yacc.c:1646  */
+#line 1236 "cal_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 21 "desk_calculator_parser.y" /* yacc.c:1646  */
+#line 21 "cal_parser.y" /* yacc.c:1646  */
     { (yyval) = (yyvsp[-2]) - (yyvsp[0]); printf("E => E-T %d %d %d\n",(yyval),(yyvsp[-2]),(yyvsp[0]));}
-#line 1242 "desk_calculator_parser.tab.c" /* yacc.c:1646  */
+#line 1242 "cal_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 22 "desk_calculator_parser.y" /* yacc.c:1646  */
+#line 22 "cal_parser.y" /* yacc.c:1646  */
     { (yyval) = pow((yyvsp[-2]), (yyvsp[0]));printf("E => E^T  %d %d %d\n",(yyval),(yyvsp[-2]),(yyvsp[0]));}
-#line 1248 "desk_calculator_parser.tab.c" /* yacc.c:1646  */
+#line 1248 "cal_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 23 "desk_calculator_parser.y" /* yacc.c:1646  */
+#line 23 "cal_parser.y" /* yacc.c:1646  */
     {(yyval) = (int)(yyvsp[-2])%(int)(yyvsp[0]); printf("E => E%T  %d %d %d\n",(yyval),(yyvsp[-2]),(yyvsp[0]));}
-#line 1254 "desk_calculator_parser.tab.c" /* yacc.c:1646  */
+#line 1254 "cal_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
-#line 26 "desk_calculator_parser.y" /* yacc.c:1646  */
+#line 26 "cal_parser.y" /* yacc.c:1646  */
     {  printf("T =>F %d %d\n",(yyval), (yyvsp[0]));}
-#line 1260 "desk_calculator_parser.tab.c" /* yacc.c:1646  */
+#line 1260 "cal_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 27 "desk_calculator_parser.y" /* yacc.c:1646  */
+#line 27 "cal_parser.y" /* yacc.c:1646  */
     { (yyval) = (yyvsp[-2]) * (yyvsp[0]); printf("T => T*F %d %d %d\n",(yyval),(yyvsp[-2]),(yyvsp[0]));}
-#line 1266 "desk_calculator_parser.tab.c" /* yacc.c:1646  */
+#line 1266 "cal_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
-#line 28 "desk_calculator_parser.y" /* yacc.c:1646  */
+#line 28 "cal_parser.y" /* yacc.c:1646  */
     { (yyval) = (yyvsp[-2]) / (yyvsp[0]); printf("T => T/F %d %d %d\n",(yyval),(yyvsp[-2]),(yyvsp[0]));}
-#line 1272 "desk_calculator_parser.tab.c" /* yacc.c:1646  */
+#line 1272 "cal_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 13:
-#line 31 "desk_calculator_parser.y" /* yacc.c:1646  */
+#line 31 "cal_parser.y" /* yacc.c:1646  */
     { printf("F =>NUMBER %d %d\n",(yyval), (yyvsp[0]));}
-#line 1278 "desk_calculator_parser.tab.c" /* yacc.c:1646  */
+#line 1278 "cal_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 14:
-#line 32 "desk_calculator_parser.y" /* yacc.c:1646  */
+#line 32 "cal_parser.y" /* yacc.c:1646  */
     { (yyval) = (yyvsp[-1]); printf("F => (E) %d %d\n", (yyval),(yyvsp[-1]));}
-#line 1284 "desk_calculator_parser.tab.c" /* yacc.c:1646  */
+#line 1284 "cal_parser.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1288 "desk_calculator_parser.tab.c" /* yacc.c:1646  */
+#line 1288 "cal_parser.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1512,7 +1512,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 35 "desk_calculator_parser.y" /* yacc.c:1906  */
+#line 35 "cal_parser.y" /* yacc.c:1906  */
 
 
 main(int argc, char **argv)

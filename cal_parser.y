@@ -9,6 +9,7 @@
 %token OP CP
 %token EOL
 %token POW
+%token MOD
 %%
 calclist: /* nothing */
  | calclist exp EOL { printf("Result => %d\n", $2); } 
@@ -18,7 +19,8 @@ calclist: /* nothing */
 exp: factor { printf("E =>T %d %d\n",$$, $1);} /* $$ is given the value of $1 by default*/
  | exp ADD factor { $$ = $1 + $3; printf("E => E+T %d %d %d\n",$$,$1,$3);} 
  | exp SUB factor { $$ = $1 - $3; printf("E => E-T %d %d %d\n",$$,$1,$3);}  
- | exp POW factor { $$ = pow ($1, $3); }
+ | exp POW factor { $$ = pow($1, $3);printf("E => E^T  %d %d %d\n",$$,$1,$3);}  
+ | exp MOD factor {$$ = (int)$1%(int)$3; printf("E => E%T  %d %d %d\n",$$,$1,$3);}  
  ;
 
 factor: term {  printf("T =>F %d %d\n",$$, $1);} 

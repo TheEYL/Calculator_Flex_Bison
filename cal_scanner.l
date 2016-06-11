@@ -1,6 +1,6 @@
 /*recognize tokens for the calculator and print them out*/
 %{
-# include "desk_calculator_parser.tab.h"
+# include "cal_parser.tab.h"
 %}
        
 %%
@@ -11,6 +11,7 @@
 "("     { printf("OPENPAR\n"); return OP; }
 ")"     { printf("CLOSEPAR\n"); return CP; }
 "^"     { printf("EXPONENT\n"); return POW;}
+"%"     { printf("MOD\n"); return MOD; }
 [0-9]+	{ printf("NUMBER\n");yylval = atoi(yytext); return NUMBER; }
 0x[a-f0-9]+ {return NUMBER;}
 "$"     { printf("EOF\n");}
