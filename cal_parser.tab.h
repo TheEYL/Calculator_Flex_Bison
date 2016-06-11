@@ -45,23 +45,35 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
-    NUMBER = 258,
-    ADD = 259,
-    SUB = 260,
-    MUL = 261,
-    DIV = 262,
-    ABS = 263,
-    OP = 264,
-    CP = 265,
-    EOL = 266,
-    POW = 267,
-    MOD = 268
+    FLOAT = 258,
+    NUMBER = 259,
+    ADD = 260,
+    SUB = 261,
+    MUL = 262,
+    DIV = 263,
+    ABS = 264,
+    OP = 265,
+    CP = 266,
+    EOL = 267,
+    POW = 268,
+    MOD = 269,
+    INTEGER = 270
   };
 #endif
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+
+union YYSTYPE
+{
+#line 10 "cal_parser.y" /* yacc.c:1909  */
+
+double flt;
+
+#line 74 "cal_parser.tab.h" /* yacc.c:1909  */
+};
+
+typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif

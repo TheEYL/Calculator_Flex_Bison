@@ -12,8 +12,9 @@
 ")"     { printf("CLOSEPAR\n"); return CP; }
 "^"     { printf("EXPONENT\n"); return POW;}
 "%"     { printf("MOD\n"); return MOD; }
-[0-9]+	{ printf("NUMBER\n");yylval = atoi(yytext); return NUMBER; }
-0x[a-f0-9]+ {return NUMBER;}
+[0-9]*\.?[0-9]+|[0-9]+\. { printf("FLOAT\n"); yylval.flt =  atof(yytext); return FLOAT; }
+
+
 "$"     { printf("EOF\n");}
 \n      { printf("NEWLINE\n"); return EOL; }
 "//".*  /* ignores comments */  

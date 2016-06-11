@@ -10,26 +10,29 @@
 %token EOL
 %token POW
 %token MOD
+%token  FLOAT
+%token  INTEGER
+
 %%
-calclist: /* nothing */
- | calclist exp EOL { printf("Result => %d\n", $2); } 
- | calclist EOL { printf("> "); } /* blank line or comment */
+S: /*nothing*/ 
+ | S E EOL { printf("Result => %d\n", $2); } 
+ | S EOL { printf("> "); } /* blank line or comment */
  ;
 
-exp: factor { printf("E =>T %d %d\n",$$, $1);} /* $$ is given the value of $1 by default*/
- | exp ADD factor { $$ = $1 + $3; printf("E => E+T %d %d %d\n",$$,$1,$3);} 
- | exp SUB factor { $$ = $1 - $3; printf("E => E-T %d %d %d\n",$$,$1,$3);}  
- | exp POW factor { $$ = pow($1, $3);printf("E => E^T  %d %d %d\n",$$,$1,$3);}  
- | exp MOD factor {$$ = (int)$1%(int)$3; printf("E => E%T  %d %d %d\n",$$,$1,$3);}  
+E: T { printf("E =>T %d %d\n",$$, $1);} /* $$ is given the value of $1 by default*/
+ | E ADD T { $$ = $1 + $3; printf("E => E+T %d %d %d\n",$$,$1,$3);} 
+ | E SUB T { $$ = $1 - $3; printf("E => E-T %d %d %d\n",$$,$1,$3);}  
+ | E POW T { $$ = pow($1, $3);printf("E => E^T  %d %d %d\n",$$,$1,$3);}  
+ | E MOD T { $$ = (int)$1%(int)$3; printf("E => E%T  %d %d %d\n",$$,$1,$3);}  
  ;
 
-factor: term {  printf("T =>F %d %d\n",$$, $1);} 
- | factor MUL term { $$ = $1 * $3; printf("T => T*F %d %d %d\n",$$,$1,$3);}
- | factor DIV term { $$ = $1 / $3; printf("T => T/F %d %d %d\n",$$,$1,$3);} 
- ;
+T: F {  printf("T =>F %d %d\n",$$, $1);} 
+ | T MUL F { $$ = $1 * $3; printf("T => T*F %d %d %d\n",$$,$1,$3);}
 
-term: NUMBER { printf("F =>NUMBER %d %d\n",$$, $1);}
- | OP exp CP { $$ = $2; printf("F => (E) %d %d\n", $$,$2);}
+F: NUMBER { $$ = $1; printf("F =>NUMBER; ");}
+ | FLOAT { $$ = $1;printf("F =>FLOAT");} 
+ | INTEGER { $$ = $1;printf("F =>INTEGER");}
+ | OP E CP { $$ = $2; printf("F => (E) %d %d\n", $$,$2);}
 ;
 
 %%
