@@ -822,7 +822,7 @@ YY_RULE_SETUP
 case 11:
 YY_RULE_SETUP
 #line 27 "cal_scanner.l"
-{printf("HEX-NUMBER\n"); yylval = strtol (yytext + 2, NULL, 16); return HEX;}
+{ printf("HEX-NUMBER\n"); yylval = strtol (yytext + 2, NULL, 16); return HEX;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
