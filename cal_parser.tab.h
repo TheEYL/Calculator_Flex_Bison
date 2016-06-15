@@ -39,6 +39,12 @@
 #if YYDEBUG
 extern int yydebug;
 #endif
+/* "%code requires" blocks.  */
+#line 12 "cal_parser.y" /* yacc.c:1909  */
+
+    #define YYSTYPE double
+
+#line 48 "cal_parser.tab.h" /* yacc.c:1909  */
 
 /* Token type.  */
 #ifndef YYTOKENTYPE
@@ -46,17 +52,20 @@ extern int yydebug;
   enum yytokentype
   {
     NUMBER = 258,
-    ADD = 259,
-    SUB = 260,
-    MUL = 261,
-    DIV = 262,
-    ABS = 263,
-    OP = 264,
-    CP = 265,
-    EOL = 266,
-    POW = 267,
-    MOD = 268,
-    NEG = 269
+    FLOAT = 259,
+    HEX = 260,
+    OCT = 261,
+    ADD = 262,
+    SUB = 263,
+    MUL = 264,
+    DIV = 265,
+    ABS = 266,
+    OP = 267,
+    CP = 268,
+    EOL = 269,
+    POW = 270,
+    MOD = 271,
+    NEG = 272
   };
 #endif
 

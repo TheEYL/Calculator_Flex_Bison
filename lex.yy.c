@@ -387,8 +387,8 @@ struct yy_trans_info
 static yyconst flex_int16_t yy_accept[36] =
     {   0,
         0,    0,   19,   17,   16,   14,   13,    8,    5,    6,
-        3,    1,    2,   17,    4,    9,    9,    7,    0,   15,
-        0,    9,    0,    0,    0,    0,   15,    0,   10,   11,
+        3,    1,    2,   17,    4,    9,    9,    7,   10,   15,
+       10,    9,    0,    0,    0,    0,   15,    0,   10,   11,
        12,    0,   10,   10,    0
     } ;
 
@@ -817,17 +817,17 @@ YY_RULE_SETUP
 case 10:
 YY_RULE_SETUP
 #line 26 "cal_scanner.l"
-{ printf("FLOAT\n"); yylval = strtol (yytext, NULL, 10); return NUMBER; }
+{ printf("DOUBLE\n"); yylval =  atof(yytext);   return FLOAT; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
 #line 27 "cal_scanner.l"
-{printf("HEX-NUMBER\n"); yylval = strtol (yytext + 2, NULL, 16); return NUMBER;}
+{printf("HEX-NUMBER\n"); yylval = strtol (yytext + 2, NULL, 16); return HEX;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
 #line 28 "cal_scanner.l"
-{ printf("OCTAL-NUMBER\n"); yylval = strtol (yytext + 1, NULL, 8); return NUMBER;} /*octal number with a 0o prefix*/
+{ printf("OCTAL-NUMBER\n"); yylval = strtol (yytext + 1, NULL, 8); return OCT;} /*octal number with a 0o prefix*/
 	YY_BREAK
 case 13:
 YY_RULE_SETUP

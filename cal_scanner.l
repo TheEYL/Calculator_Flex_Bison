@@ -9,7 +9,7 @@ white [ \t]+
 digit [0-9]
 integer {digit}+ 
 exp [eE][+-]?{integer}
-double {digit}*\.?{integer}{exp}|{integer}+{exp}\.
+double {digit}*\.?{integer}{exp}?|{integer}+{exp}?\.
 hex 0[xX][0-9a-fA-F]+
 oct 0o[0-7]+
 
@@ -23,9 +23,9 @@ oct 0o[0-7]+
 "^"     { printf("EXPONENT\n"); return POW;}
 "%"     { printf("MOD\n"); return MOD; }
 {integer}	{ printf("INTEGER\n"); yylval = strtol (yytext, NULL, 10); return NUMBER; }
-{double} { printf("DOUBLE\n"); yylval = strtol (yytext, NULL, 10); return NUMBER; }
-{hex} {printf("HEX-NUMBER\n"); yylval = strtol (yytext + 2, NULL, 16); return NUMBER;}
-{oct} { printf("OCTAL-NUMBER\n"); yylval = strtol (yytext + 1, NULL, 8); return NUMBER;} /*octal number with a 0o prefix*/
+{double} { printf("DOUBLE\n"); yylval =  atof(yytext);   return FLOAT; }
+{hex} {printf("HEX-NUMBER\n"); yylval = strtol (yytext + 2, NULL, 16); return HEX;}
+{oct} { printf("OCTAL-NUMBER\n"); yylval = strtol (yytext + 1, NULL, 8); return OCT;} /*octal number with a 0o prefix*/
 
 
 "$"     { printf("EOF\n");}
