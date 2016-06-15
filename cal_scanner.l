@@ -29,7 +29,7 @@ oct 0o[0-7]+
 
 
 "$"         { printf("EOF\n");}
-\n          { printf("NEWLINE\n"); return EOL; }
+\n          { printf("\nNEWLINE\n"); return EOL; }
 "//".*  /* ignores comments */  
 [ \t]       { /* ignore white space */ }
 .        	{ yyerror("Other character %c\n", *yytext); }
